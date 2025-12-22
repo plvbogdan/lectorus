@@ -85,7 +85,7 @@ async def get_lection(lection_id: int, db: Session = Depends(get_db)) -> dict:
             "name": lection.name,
             "author": lection.author,
             "topic": lection.topic,
-            "created_at"
+            "created_at": lection.created_at,
             "lection": notebook_parser(lection.content)
         }
 
