@@ -22,3 +22,5 @@ data/
 logs/
 
 .vscode/
+
+**/key_gen.py

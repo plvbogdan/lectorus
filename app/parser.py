@@ -14,7 +14,7 @@ def notebook_parser(data: json) -> list:
                     "content": []
                 })
             else:
-                if "title" not in body_lecture[-1]:
+                if "title" not in body_lecture[-1] or not body_lecture:
                     raise HTTPException(status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE, detail='Неверный формат ноутбука')
 
                 body_lecture[-1]["content"].append({
