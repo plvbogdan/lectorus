@@ -3,6 +3,7 @@ from app.database import get_db
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, EmailStr
 from app.models.users import User
+
 from passlib.context import CryptContext
 from app.auth import encode_jwt
 import re
@@ -60,7 +61,7 @@ async def sign_up(db: Session = Depends(get_db),
 
 @router.post("/signin", status_code=status.HTTP_200_OK)
 async def sign_in(
-                response: Response,    
+                #response: Response,    
                 db: Session = Depends(get_db),
                 email: str = Form(..., min_length=1, max_length=100),
                 password: str = Form(..., min_length=8),

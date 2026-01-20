@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import lectures, users, auth
+from app.routers import lectures, users, auth, account
 from app.database import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,7 +23,8 @@ app = FastAPI(
 app.include_router(lectures.router)
 app.include_router(users.router)
 app.include_router(auth.router)
+app.include_router(account.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Добро пожаловать в Лекторус"}
+    return {"message": "Добро пожаловать"}
