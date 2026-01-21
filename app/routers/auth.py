@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException, Depends, status, Form, Response
-from app.database import get_db
+from database import get_db
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, EmailStr
-from app.models.users import User
+from models.users import User
 
 from passlib.context import CryptContext
-from app.auth import encode_jwt
+from auth import encode_jwt
 import re
 
 

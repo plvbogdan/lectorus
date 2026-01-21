@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   postgres:
     image: postgres:18-alpine
@@ -10,16 +12,36 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-
-    
   backend:
-    build: .
+    build:
+      context: ./app  
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     depends_on:
       - postgres
     environment:
-        DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
-    
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+      
+      CORS_ORIGIN: http://localhost:3000
+
+  frontend:  
+    build:
+      context: ./frontend  
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  
+    depends_on:
+      - backend  
+    environment:
+      
+      NUXT_PUBLIC_API_URL: http://localhost:8000
+      
+      API_INTERNAL_URL: http://backend:8000
+      
+      NUXT_DEV: "true"
+      HOST: "0.0.0.0"
+      PORT: 3000
+
 volumes:
   postgres_data:

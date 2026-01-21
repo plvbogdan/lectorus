@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routers import lectures, users, auth, account
-from app.database import Base, engine
+from routers import lectures, users, auth, account
+from database import Base, engine
 from fastapi.middleware.cors import CORSMiddleware
 
 #Base.metadata.drop_all(bind=engine)
@@ -12,13 +12,13 @@ app = FastAPI(
 )
 
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://localhost:3000"], 
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(lectures.router)
 app.include_router(users.router)

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, File, UploadFile, HTTPException, Form, Depends, status
-from app.models.users import User 
-from app.database import get_db
+from models.users import User 
+from database import get_db
 from sqlalchemy.orm import Session
-from app.auth import get_current_user_payload
+from auth import get_current_user_payload
 
 
 router = APIRouter(

@@ -1,12 +1,12 @@
 from fastapi import APIRouter, File, UploadFile, HTTPException, Form, Depends, status, Response, dependencies, Request
-from app.database import get_db
-from app.models.lectures import LectureDB
-from app.parser import notebook_parser
+from database import get_db
+from models.lectures import LectureDB
+from parser import notebook_parser
 from sqlalchemy.orm import Session
 import json
 from typing import Optional
-from app.auth import get_current_user_payload
-from app.models.users import User 
+from auth import get_current_user_payload
+from models.users import User 
 
 router = APIRouter(
     prefix="/lectures",
