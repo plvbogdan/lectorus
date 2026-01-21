@@ -1,0 +1,77 @@
+// ====== БАЗОВЫЕ СТИЛИ ======
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  
+  scrollbar-gutter: stable;
+  // overflow-y: auto; // или scroll
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+// ====== ЧИСТЫЙ СКРОЛЛ БЕЗ СТРЕЛОК ======
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0095cd;
+  border-radius: 5px;
+  
+  // Ключевые свойства для удаления стрелок
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+// Полностью убираем стрелки
+body::-webkit-scrollbar-button,
+body::-webkit-scrollbar-corner {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+// ====== АДАПТИВНЫЙ ШРИФТ ======
+@media (max-width: 1920px) { html { font-size: 15px; } }
+@media (max-width: 1600px) { html { font-size: 14px; } }
+@media (max-width: 1280px) { html { font-size: 13px; } }
+@media (max-width: 768px) { html { font-size: 12px; } }
+@media (max-width: 480px) { html { font-size: 11px; } }
+
+// ====== КОНТЕЙНЕРЫ ======
+.center-wrap {
+  width: 100%;
+  max-width: 85rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-wrap {
+  width: 100%;
+  max-width: 95rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// Адаптивные отступы
+@media (max-width: 768px) {
+  .center-wrap,
+  .section-wrap {
+    padding: 0 1rem;
+  }
+}

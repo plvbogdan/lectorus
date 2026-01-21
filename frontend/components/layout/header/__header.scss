@@ -1,0 +1,38 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  z-index: 1000;
+
+  &.--scrolled {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &__home {
+    color: var(--color-dark)
+  }
+  
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+  }
+
+  &__logout {
+    color: var(--color-error);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all .24s ease;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+}

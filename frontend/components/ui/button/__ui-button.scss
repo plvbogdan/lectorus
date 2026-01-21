@@ -1,0 +1,40 @@
+.ui-button {
+  cursor: pointer;
+  transition: all .24s ease;
+  border: none;
+  border-radius: .875rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  color: var(--color-white);
+  background: var(--color-blue);
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+
+  &--inner {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    justify-content: center;
+  }
+
+  &:hover {
+    background: var(--color-blue-h);
+  }
+
+  &:active {
+    transform: scale(.98);
+  }
+
+  &.disabled {
+    background-color: var(--color-dark-12);
+    cursor: default;
+
+    &:active {
+      transform: none;
+    }
+  }
+}

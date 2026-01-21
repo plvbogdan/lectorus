@@ -1,0 +1,20 @@
+.main {
+    &__title {
+        font-size: 3.5rem;
+        line-height: 4rem;
+        font-weight: 700;
+    }
+
+    &__lectures {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    &__placeholder {
+        color: var(--color-dark-80);
+        width: 100%;
+        margin-top: 10rem;
+        text-align: center;
+    }
+}
